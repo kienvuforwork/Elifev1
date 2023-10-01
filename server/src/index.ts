@@ -12,7 +12,7 @@ const AppError = require("./ErrorHandler/appError")
 const { Server } = require('socket.io');
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'http://127.0.0.1:5500'], // Set your frontend's origin here
+    origin: ['http://localhost:3000', 'http://127.0.0.1:5500', "https://elifev1.vercel.app"], // Set your frontend's origin here
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
