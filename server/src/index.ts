@@ -9,7 +9,7 @@ import router from "./router";
 const path = require('path');
 const globalErr = require("./controller/errorController")
 const AppError = require("./ErrorHandler/appError")
-const { Server } = require('socket.io');
+
 
 const corsOptions = {
     origin: ['http://localhost:3000', 'http://127.0.0.1:5500', "https://elifev2.vercel.app"], // Set your frontend's origin here
@@ -29,17 +29,8 @@ const corsOptions = {
   
   
   const server = http.createServer(app)
-  const io = new Server(server, {
-    cors:{
-      origin: 'http://localhost:3000', // Set your frontend's origin here
-      methods: ['GET','POST'],
-    }
-  });
-io.on('connection', (socket:any) => {
-  console.log(socket.id);
-  socket.emit('notification', 'Hello, client!');
-  socket.on("disconnect", () => console.log("Client disconnected"));
-});
+
+
 
 server.listen(8080, () => {
     console.log("server running on port 8080!")
